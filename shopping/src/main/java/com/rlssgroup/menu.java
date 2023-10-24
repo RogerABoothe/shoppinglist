@@ -12,7 +12,7 @@ public class menu {
         System.out.println("Select your option by using the number!");
         System.out.println("1 - Add an item to the list");
         System.out.println("2 - Mark and item on the list complete");
-        System.out.println("3 - view the list");
+        System.out.println("3 - View the list");
     }
 
     public void conMenu(){

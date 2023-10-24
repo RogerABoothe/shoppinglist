@@ -6,8 +6,11 @@ import java.util.Properties;
 
 public class config {
 
-    private String dbConn;
-    private String[] vault;
+    private static String dbConn;
+    private static String vaultUser;
+    private static String vaultPwd;
+    private static String logLoc;
+    private String[] vault = new String[2];
 
     public config() throws IOException {
         String configFilePath = "shopping\\src\\main\\java\\com\\rlssgroup\\config.properties";
@@ -16,33 +19,35 @@ public class config {
         prop.load(propsInput);
         if ((System.getenv("OS").equals("Windows_NT"))){
             dbConn = prop.getProperty("DEV_ENV");
-            vault[0] = "roger";
-            vault[1] = "P3ngu1n5";
+            vaultUser = "roger";
+            vaultPwd = "P3ngu1n5";
+            logLoc = prop.getProperty("DEV_LOGGING");
         }
         else{
             dbConn = prop.getProperty("PROD_ENV");
             String secretName = prop.getProperty("PROD_SECRET_NAME");
             String keyVaultName = "rlss-valut-01";
             vault = azureAuth.authDetails(secretName, keyVaultName);
+            vaultUser = vault[0];
+            vaultPwd = vault[1];
+            logLoc = prop.getProperty("PROD_LOGGING");
         }
-        System.out.println(dbConn);
-        System.out.println(vault[0]);
-        System.out.println(vault[1]);
     }
 
-    public String getDbConn() {
+    public static String getDbConn() {
         return dbConn;
     }
 
-    public void setDbConn(String dbConn) {
-        this.dbConn = dbConn;
+    public static String getVaultUser() {
+        return vaultUser;
     }
 
-    public String[] getVault() {
-        return vault;
+    public static String getVaultPwd() {
+        return vaultPwd;
     }
 
-    public void setVault(String[] vault) {
-        this.vault = vault;
+    public static String getlogLoc() {
+        return logLoc;
     }
+
 }

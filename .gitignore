@@ -9,3 +9,4 @@
 *.zip
 *.tar.gz
 *.rar
+shopping/target/classes/com/rlssgroup/config.properties

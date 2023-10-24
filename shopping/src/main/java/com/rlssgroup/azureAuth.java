@@ -1,5 +1,6 @@
 package com.rlssgroup;
 
+import java.io.IOException;
 import com.azure.identity.DefaultAzureCredential;
 import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.security.keyvault.secrets.SecretClient;
@@ -9,7 +10,7 @@ import com.azure.security.keyvault.secrets.models.SecretProperties;
 
 public class azureAuth {
 
-    public static String[] authDetails(String sName, String vName) {
+    public static String[] authDetails(String sName, String vName) throws IOException {
         String secretName = sName;
         String keyVaultName = vName; 
         String keyVaultUri = "https://" + keyVaultName + ".vault.azure.net"; 

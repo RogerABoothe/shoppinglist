@@ -1,11 +1,12 @@
 package com.rlssgroup;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Scanner;
 
 public class shopping {
     
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         System.out.println("Wecome to the RLSS Shopping List App!");
         System.out.println("This is sprint one, additional features will continue to be added!");
         System.out.println("Currently we only function via terminal!");
