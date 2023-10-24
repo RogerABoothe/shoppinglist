@@ -7,54 +7,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class itemDisplay {
-
-    public static void displayAll() throws ClassNotFoundException,SQLException, IOException {
-        Connection conn;
-        Statement stmt;
-        conn = dbConnect.getConnection();
-        stmt = conn.createStatement();
-        String sql = "SELECT * FROM shopping ;" ;
-        ResultSet rs = stmt.executeQuery(sql);
-        printDisplay(rs);
-        stmt.close();
-    }
-
-    public static void displaySingle(int num) throws ClassNotFoundException,SQLException, IOException {
-        Connection conn;
-        Statement stmt;
-        conn = dbConnect.getConnection();
-        stmt = conn.createStatement();
-        String sql = "SELECT * FROM shopping WHERE num = " + num + ";" ;
-        ResultSet rs = stmt.executeQuery(sql);
-        printDisplay(rs);
-        stmt.close();
-    }
-
-    public static void displayNotComp() throws ClassNotFoundException,SQLException, IOException {
-        Connection conn;
-        Statement stmt;
-        conn = dbConnect.getConnection();
-        stmt = conn.createStatement();
-        String sql = "SELECT * FROM shopping WHERE status = true;" ;
-        ResultSet rs = stmt.executeQuery(sql);
-        printDisplay(rs);
-        stmt.close();
-    }
-
-    public static void displayComp() throws ClassNotFoundException,SQLException, IOException {
-        Connection conn;
-        Statement stmt;
-        conn = dbConnect.getConnection();
-        stmt = conn.createStatement();
-        String sql = "SELECT * FROM shopping WHERE status = false;" ;
-        ResultSet rs = stmt.executeQuery(sql);
-        printDisplay(rs);
-        stmt.close();
-    }
+public class ItemDisplay {
 
     public static void displayMenu(Scanner scnr) throws ClassNotFoundException, SQLException, IOException {
-        menu menu = new menu();
+        Menu menu = new Menu();
         menu.disMenu();
         int usrChoice = menu.choice(scnr, 1, 4);
         switch(usrChoice) {
@@ -76,10 +32,54 @@ public class itemDisplay {
         }
     }
 
+    public static void displayAll() throws ClassNotFoundException,SQLException, IOException {
+        Connection conn;
+        Statement stmt;
+        conn = DBConnect.getConnection();
+        stmt = conn.createStatement();
+        String sql = "SELECT * FROM shopping ;" ;
+        ResultSet rs = stmt.executeQuery(sql);
+        printDisplay(rs);
+        stmt.close();
+    }
+
+    public static void displaySingle(int num) throws ClassNotFoundException,SQLException, IOException {
+        Connection conn;
+        Statement stmt;
+        conn = DBConnect.getConnection();
+        stmt = conn.createStatement();
+        String sql = "SELECT * FROM shopping WHERE num = " + num + ";" ;
+        ResultSet rs = stmt.executeQuery(sql);
+        printDisplay(rs);
+        stmt.close();
+    }
+
+    public static void displayNotComp() throws ClassNotFoundException,SQLException, IOException {
+        Connection conn;
+        Statement stmt;
+        conn = DBConnect.getConnection();
+        stmt = conn.createStatement();
+        String sql = "SELECT * FROM shopping WHERE status = true;" ;
+        ResultSet rs = stmt.executeQuery(sql);
+        printDisplay(rs);
+        stmt.close();
+    }
+
+    public static void displayComp() throws ClassNotFoundException,SQLException, IOException {
+        Connection conn;
+        Statement stmt;
+        conn = DBConnect.getConnection();
+        stmt = conn.createStatement();
+        String sql = "SELECT * FROM shopping WHERE status = false;" ;
+        ResultSet rs = stmt.executeQuery(sql);
+        printDisplay(rs);
+        stmt.close();
+    }
+
     public static int findMax() throws ClassNotFoundException, SQLException, IOException{
         Connection conn;
         Statement stmt;
-        conn = dbConnect.getConnection();
+        conn = DBConnect.getConnection();
         stmt = conn.createStatement();
         String sql = "SELECT COUNT(*) FROM shopping;" ;
         ResultSet rs = stmt.executeQuery(sql);

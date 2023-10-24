@@ -4,15 +4,15 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class config {
+public class Config {
 
-    private static String dbConn;
-    private static String vaultUser;
-    private static String vaultPwd;
-    private static String logLoc;
+    private String dbConn;
+    private String vaultUser;
+    private String vaultPwd;
+    private String logLoc;
     private String[] vault = new String[2];
 
-    public config() throws IOException {
+    public Config() throws IOException {
         String configFilePath = "shopping\\src\\main\\java\\com\\rlssgroup\\config.properties";
         FileInputStream propsInput = new FileInputStream(configFilePath);
         Properties prop = new Properties();
@@ -27,26 +27,26 @@ public class config {
             dbConn = prop.getProperty("PROD_ENV");
             String secretName = prop.getProperty("PROD_SECRET_NAME");
             String keyVaultName = "rlss-valut-01";
-            vault = azureAuth.authDetails(secretName, keyVaultName);
+            vault = AzureAuth.authDetails(secretName, keyVaultName);
             vaultUser = vault[0];
             vaultPwd = vault[1];
             logLoc = prop.getProperty("PROD_LOGGING");
         }
     }
 
-    public static String getDbConn() {
+    public String getDbConn() {
         return dbConn;
     }
 
-    public static String getVaultUser() {
+    public String getVaultUser() {
         return vaultUser;
     }
 
-    public static String getVaultPwd() {
+    public String getVaultPwd() {
         return vaultPwd;
     }
 
-    public static String getlogLoc() {
+    public String getLogLoc() {
         return logLoc;
     }
 

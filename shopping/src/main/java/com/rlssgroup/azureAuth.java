@@ -8,7 +8,7 @@ import com.azure.security.keyvault.secrets.SecretClientBuilder;
 import com.azure.security.keyvault.secrets.models.KeyVaultSecret;
 import com.azure.security.keyvault.secrets.models.SecretProperties;
 
-public class azureAuth {
+public class AzureAuth {
 
     public static String[] authDetails(String sName, String vName) throws IOException {
         String secretName = sName;
@@ -21,10 +21,10 @@ public class azureAuth {
             .vaultUrl(keyVaultUri)
             .credential(defaultCredential)
             .buildClient();
-        logging.logEvent("Getting secret from "  + keyVaultName + " for " + secretName);
+        Logging.logEvent("Getting secret from "  + keyVaultName + " for " + secretName);
         KeyVaultSecret retrievedSecret = secretClient.getSecret(secretName);
         SecretProperties secretProperties = secretClient.getSecret(secretName).getProperties();
-        logging.logEvent("Getting content type from " + keyVaultName + " for " + secretName);
+        Logging.logEvent("Getting content type from " + keyVaultName + " for " + secretName);
         String contentType = secretProperties.getContentType();
 
         vault[0] = contentType.substring(11);

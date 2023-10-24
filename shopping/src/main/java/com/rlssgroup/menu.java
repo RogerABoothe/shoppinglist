@@ -3,7 +3,7 @@ package com.rlssgroup;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class menu {
+public class Menu {
     public int usrChoice;
     public String userInput;
     public boolean error, cont;

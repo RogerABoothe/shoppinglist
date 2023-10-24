@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class itemComp {
+public class ItemComp {
     public static int num ;
 
     public static void compItem(String usr_comp, String num) throws ClassNotFoundException,SQLException, IOException {
@@ -15,16 +15,15 @@ public class itemComp {
         String status = compStatus(num);
 
         if (status.equals("t")){
-            conn = dbConnect.getConnection();
+            conn = DBConnect.getConnection();
             stmt = conn.createStatement();
             String sql = "UPDATE shopping"
             + " SET status = false, usr_comp = '" + usr_comp + "', time_comp = current_timestamp"
             + " WHERE num = " + num +  ";";
             stmt.executeUpdate(sql);
-            logging.logEvent("Marking item " + num  + " done by " + usr_comp);
+            Logging.logEvent("Marking item " + num  + " complete by " + usr_comp);
             stmt.close();
             conn.commit();
-            logging.logEvent("Item " + num + " marked complete by " + usr_comp);
             System.out.println("Item marked complete!");
         }
         else {
@@ -35,7 +34,7 @@ public class itemComp {
     public static String compStatus(String num) throws ClassNotFoundException, SQLException, IOException{
         Connection conn;
         Statement stmt;
-        conn = dbConnect.getConnection();
+        conn = DBConnect.getConnection();
         stmt = conn.createStatement();
         String sql = "SELECT status FROM shopping WHERE num = '" + num +  "'';";
         ResultSet rs = stmt.executeQuery(sql);

@@ -5,24 +5,25 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.io.IOException;
 
-public class dbConnect {
+public class DBConnect {
 
     public static Connection conn;
 
     public static Connection getConnection()throws ClassNotFoundException,SQLException, IOException {
-        String dbConn = config.getDbConn();
-        String vaultUser = config.getVaultUser();
-        String vaultPwd = config.getVaultPwd();
+        Config configs = new Config();
+        String dbConn = configs.getDbConn();
+        String vaultUser = configs.getVaultUser();
+        String vaultPwd = configs.getVaultPwd();
 
         if (conn == null){
             Class.forName("org.postgresql.Driver");
             conn = DriverManager
             .getConnection(dbConn,vaultUser, vaultPwd);
             conn.setAutoCommit(false);
-            logging.logEvent("Opened database successfully");
+            Logging.logEvent("Opened database successfully");
         }
         else {
-            logging.logEvent("Connection exists, new one not opened");
+            Logging.logEvent("Connection exists, new one not opened");
         }
         return conn;
     }
@@ -32,6 +33,6 @@ public class dbConnect {
             conn.close();
             conn = null;
         }
-        logging.logEvent("Connection closed");
+        Logging.logEvent("Connection closed");
     }
 }
