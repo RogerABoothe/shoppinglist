@@ -15,7 +15,7 @@ public class ItemAdd {
         conn = DBConnect.getConnection();
         stmt = conn.createStatement();
         String sql = "INSERT INTO shopping (status, descr, usr_add, time_add)"
-           + "VALUES (true, '" + descr + "', '" + usr_add + "', current_timestamp) ; ";
+            + "VALUES (true, '" + descr + "', '" + usr_add + "', current_timestamp) ; ";
         stmt.executeUpdate(sql);
         Logging.logEvent("Adding item " + descr + " done by " + usr_add);
         stmt.close();
