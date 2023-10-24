@@ -1,5 +1,6 @@
 package com.rlssgroup;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,9 +9,7 @@ import java.sql.Statement;
 public class itemComp {
     public static int num ;
 
-    public static void compItem(String usr, String itemNum) throws ClassNotFoundException,SQLException {
-        String usr_comp = usr;
-        num = Integer.parseInt(itemNum);
+    public static void compItem(String usr_comp, String num) throws ClassNotFoundException,SQLException, IOException {
         Connection conn;
         Statement stmt;
         String status = compStatus(num);
@@ -33,13 +32,12 @@ public class itemComp {
         }
     }
 
-    public static String compStatus(int itemNum) throws ClassNotFoundException, SQLException{
-        num = itemNum;
+    public static String compStatus(String num) throws ClassNotFoundException, SQLException, IOException{
         Connection conn;
         Statement stmt;
         conn = dbConnect.getConnection();
         stmt = conn.createStatement();
-        String sql = "SELECT status FROM shopping WHERE num = " + num +  ";";
+        String sql = "SELECT status FROM shopping WHERE num = '" + num +  "'';";
         ResultSet rs = stmt.executeQuery(sql);
         rs.next();
         String status = rs.getString("status");

@@ -34,8 +34,9 @@ public class shopping {
                         break;
                 }
             }
-            catch(Exception ce){
-            System.out.println(ce);
+            catch(Exception e){
+                // logging.logEvent(e.getMessage());
+                System.out.println(e);
             }
             menu.conMenu();
             cont = menu.choice(scnr, 1, 2);

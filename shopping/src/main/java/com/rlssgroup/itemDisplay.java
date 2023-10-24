@@ -1,5 +1,6 @@
 package com.rlssgroup;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -8,7 +9,7 @@ import java.util.Scanner;
 
 public class itemDisplay {
 
-    public static void displayAll() throws ClassNotFoundException,SQLException {
+    public static void displayAll() throws ClassNotFoundException,SQLException, IOException {
         Connection conn;
         Statement stmt;
         conn = dbConnect.getConnection();
@@ -19,10 +20,9 @@ public class itemDisplay {
         stmt.close();
     }
 
-    public static void displaySingle(int itemNum) throws ClassNotFoundException,SQLException {
+    public static void displaySingle(int num) throws ClassNotFoundException,SQLException, IOException {
         Connection conn;
         Statement stmt;
-        int num = itemNum;
         conn = dbConnect.getConnection();
         stmt = conn.createStatement();
         String sql = "SELECT * FROM shopping WHERE num = " + num + ";" ;
@@ -31,7 +31,7 @@ public class itemDisplay {
         stmt.close();
     }
 
-    public static void displayNotComp() throws ClassNotFoundException,SQLException {
+    public static void displayNotComp() throws ClassNotFoundException,SQLException, IOException {
         Connection conn;
         Statement stmt;
         conn = dbConnect.getConnection();
@@ -42,7 +42,7 @@ public class itemDisplay {
         stmt.close();
     }
 
-    public static void displayComp() throws ClassNotFoundException,SQLException {
+    public static void displayComp() throws ClassNotFoundException,SQLException, IOException {
         Connection conn;
         Statement stmt;
         conn = dbConnect.getConnection();
@@ -53,7 +53,7 @@ public class itemDisplay {
         stmt.close();
     }
 
-    public static void displayMenu(Scanner scnr) throws ClassNotFoundException, SQLException {
+    public static void displayMenu(Scanner scnr) throws ClassNotFoundException, SQLException, IOException {
         menu menu = new menu();
         menu.disMenu();
         int usrChoice = menu.choice(scnr, 1, 4);
@@ -76,7 +76,7 @@ public class itemDisplay {
         }
     }
 
-    public static int findMax() throws ClassNotFoundException, SQLException{
+    public static int findMax() throws ClassNotFoundException, SQLException, IOException{
         Connection conn;
         Statement stmt;
         conn = dbConnect.getConnection();

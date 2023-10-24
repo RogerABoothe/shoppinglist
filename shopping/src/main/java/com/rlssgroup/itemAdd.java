@@ -1,12 +1,13 @@
 package com.rlssgroup;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 public class itemAdd {
 
-    public static void addItem(String usr, String itemDesc) throws ClassNotFoundException,SQLException {
+    public static void addItem(String usr, String itemDesc) throws ClassNotFoundException,SQLException, IOException {
         String usr_add = usr;
         String descr = itemDesc; 
         Connection conn;

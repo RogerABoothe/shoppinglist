@@ -6,8 +6,7 @@ import java.text.SimpleDateFormat;
 
 public class logging {
 
-    public static void logEvent(String e){
-        String event = e;
+    public static void logEvent(String event){
 
         try {
             FileWriter myWriter = new FileWriter("T:\\development\\java\\shoppinglogs.txt", true);
@@ -21,5 +20,6 @@ public class logging {
             ioe.printStackTrace();
         }
     }
+
 }
     

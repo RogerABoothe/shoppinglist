@@ -4,20 +4,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.Properties;
 
 public class dbConnect {
 
     public static Connection conn;
 
-    public static Connection getConnection()throws ClassNotFoundException,SQLException {
-        try {
+    public static Connection getConnection()throws ClassNotFoundException,SQLException, IOException {
             String configFilePath = "shopping\\src\\main\\java\\com\\rlssgroup\\config.properties";
             FileInputStream propsInput = new FileInputStream(configFilePath);
             Properties prop = new Properties();
             prop.load(propsInput);
-            String dbConn;
             String[] vault = new String[2];
+            String dbConn;
 
             if (conn == null){
                 if ((System.getenv("OS").equals("Windows_NT"))){
@@ -40,10 +40,6 @@ public class dbConnect {
             else {
                 logging.logEvent("Connection exists, new one not opened");
             }
-        }
-        catch(Exception ce){
-            System.out.println(ce);
-        }
         return conn;
     }
 

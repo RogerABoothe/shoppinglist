@@ -1,0 +1,10 @@
+
+*.class
+*.class
+shopping/target/classes/com/rlssgroup/dbConnect.class
+shopping/target/classes/com/rlssgroup/itemAdd.class
+shopping/target/classes/com/rlssgroup/itemComp.class
+shopping/target/classes/com/rlssgroup/itemDisplay.class
+shopping/target/classes/com/rlssgroup/logging.class
+shopping/target/classes/com/rlssgroup/menu.class
+shopping/target/classes/com/rlssgroup/shopping.class

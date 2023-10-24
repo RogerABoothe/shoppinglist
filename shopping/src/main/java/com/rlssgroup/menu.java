@@ -4,7 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class menu {
-    public int low, high, usrChoice;
+    public int usrChoice;
     public String userInput;
     public boolean error, cont;
 
@@ -31,14 +31,12 @@ public class menu {
 
     public int choice(Scanner scnr, int l, int h){
         error = true;
-        low = l;
-        high = h;
         usrChoice = 0 ;
 
         while (error){
             try {
                 usrChoice = scnr.nextInt();
-                if ( usrChoice >= low && usrChoice <= high ) {
+                if ( usrChoice >= l && usrChoice <= h ) {
                     error = false;
                 }
                 else {
