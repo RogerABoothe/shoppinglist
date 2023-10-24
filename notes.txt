@@ -1,0 +1,16 @@
+az ad sp create-for-rbac --name shoppinglist --role Contributor --scopes /subscriptions/a93f6835-01b9-4ec3-a85b-40016321fe57 --cert shoppinglist --create-cert --keyvault RLSS-Valut-01 --cert shoppinglist
+
+ClientSecretCredential clientSecretCredential = new ClientSecretCredentialBuilder()
+  .clientId("<your client ID>")
+  .clientSecret("shoppinglist")
+  .tenantId("c6af46f3-4742-465e-b93c-82780d6fe888")
+  .build();
+
+
+export AZURE_CLIENT_ID="shoppinglist"
+export AZURE_TENANT_ID="c6af46f3-4742-465e-b93c-82780d6fe888"
+
+
+long countLong = resultSet.getLong(1);
+//if you really want and you are sure that it fits you can now cast
+int count = (int)countLong; 
