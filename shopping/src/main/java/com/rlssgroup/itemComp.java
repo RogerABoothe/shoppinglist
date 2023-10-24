@@ -36,7 +36,7 @@ public class ItemComp {
         Statement stmt;
         conn = DBConnect.getConnection();
         stmt = conn.createStatement();
-        String sql = "SELECT status FROM shopping WHERE num = '" + num +  "'';";
+        String sql = "SELECT status FROM shopping WHERE num = " + num +  ";";
         ResultSet rs = stmt.executeQuery(sql);
         rs.next();
         String status = rs.getString("status");
