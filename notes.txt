@@ -1,0 +1,7 @@
+https://www.tutorialspoint.com/junit/index.htm
+https://medium.com/@maheshkalakshan/secure-user-authentication-validating-azure-msal-sso-tokens-in-java-e900d5295544
+https://www.zenrows.com/blog/web-scraping-java#can-you-web-scrape-in-java
+https://roadmap.sh/java
+https://www.upgrad.com/blog/java-project-ideas-topics-for-beginners/
+https://hackr.io/blog/java-projects
+https://www.zenrows.com/blog/web-scraping-java#can-you-web-scrape-in-java

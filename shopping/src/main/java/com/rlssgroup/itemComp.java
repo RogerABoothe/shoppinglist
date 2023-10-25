@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class ItemComp {
+    
     public static int num ;
 
     public static void compItem(String usr_comp, String num) throws ClassNotFoundException,SQLException, IOException {

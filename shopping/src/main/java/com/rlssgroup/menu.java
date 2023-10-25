@@ -4,6 +4,7 @@ import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
+
     public int usrChoice;
     public String userInput;
     public boolean error, cont;
@@ -15,18 +16,18 @@ public class Menu {
         System.out.println("3 - View the list");
     }
 
-    public void conMenu(){
-        System.out.println("Do you wish to continue? Select your mumber!");
-        System.out.println("1 - Continue with the program");
-        System.out.println("2 - To end the program. Results are saved to the DB for future shopping!");
-    }
-
     public void disMenu(){
         System.out.println("What do you want to view?");
         System.out.println("1 - Display all items on the list");
         System.out.println("2 - Display an item based off the number");
         System.out.println("3 - Display not completed items");
         System.out.println("4 - Display completed items");
+    }
+
+    public void conMenu(){
+        System.out.println("Do you wish to continue? Select your mumber!");
+        System.out.println("1 - Continue with the program");
+        System.out.println("2 - To end the program. Results are saved to the DB for future shopping!");
     }
 
     public int choice(Scanner scnr, int l, int h){

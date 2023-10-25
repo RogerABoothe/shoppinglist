@@ -49,5 +49,4 @@ public class Config {
     public String getLogLoc() {
         return logLoc;
     }
-
 }
